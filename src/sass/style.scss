@@ -666,21 +666,41 @@ main {
 	}
 	//GALLERY
 	.gallery-section {
+		position: relative;
 		.gallery-nav {
 			position: relative;
 			height: 88vh;
 			width: 80%;
 			margin: auto;
-			background-color: #8d8b8b;
 			display: grid;
 			grid-template-columns: 1fr 1fr 1fr;
-			.gallery-nav-item{
+			.gallery-nav-item {
 				position: relative;
 				width: 70%;
 				height: 70%;
 				margin: auto;
-				background-color: #fff;
+				background-color: #5e5e5e;
 			}
+		}
+		.gallery-item-section {
+			position: relative;
+			height: 800px;
+			margin-top: 10%;
+			.gallery-item-slick {
+				margin: auto;
+				position: relative;
+				width: 50%;
+				.slider-nav {
+					margin-top: 10%;
+					.slick-prev::before,
+					.slick-next::before {
+						color: #000000;
+					}
+				}
+			}
+		}
+		.gallery-trailers-section {
+			position: relative;
 		}
 	}
 	//CONTACT
