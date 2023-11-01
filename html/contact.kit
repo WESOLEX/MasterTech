@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolety</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="./dist/css/style.min.css">
+    <script src="https://kit.fontawesome.com/a9ed939d68.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--@include 'nav.kit'-->
+    <main>
+        <section id="contact" class="contact">
+            <div class="services-shadow"></div>
+            <div class="contact-form">
+                <h3>Napisz do nas czego potrzebujesz</h3>
+                <form action="https://formsubmit.io/send/" method="POST" name="contact-form">
+                    <div class="form-up">
+                        <div class="input-box">
+                            <label for="username">Imię:</label>
+                            <input type="text" id="username" name="username" placeholder="Wpisz swoje imię">
+                            <p class="error-text">error</p>
+                        </div>
+                        <div class="input-box">
+                            <label for="phone">Numer telefonu:</label>
+                            <input type="text" id="phone" name="phone" placeholder="Wpisz swój numer tel.">
+                            <p class="error-text">error</p>
+                        </div>
+                        <div class="input-box">
+                            <label for="email">E-mail:</label>
+                            <input type="text" id="email" name="email" placeholder="Wpisz swój e-mail">
+                            <p class="error-text">error</p>
+                        </div>
+                    </div>
+                    <div class="form-down">
+                        <label for="message">Wiadomość: </label>
+                        <textarea id="message" name="message" cols="30" rows="10"
+                            placeholder="Wpisz swoją wiadomość"></textarea>
+                        <p class="error-text">error</p>
+                        <button>Wyslij</button>
+                    </div>
+                </form>
+
+                <p class="msg-status">Wiadomość wysłana</p>
+            </div>
+            <div class="contact-details-map">
+                <div class="contact-details">
+                    <h4>Adres i dane do kontaktu</h4>
+                    <p class="contact-detail"><span>MasterTech</span><br>ul.Konopnicka 10, 62-300 Września</p>
+                    <!-- <p class="contact-detail"><span>Adres: </span>Konwaliowa 5a 62-300 Września</p> -->
+                    <p class="contact-detail"><span>Tel: </span>000-000-000</p>
+                    <p class="contact-detail"><span>E-mail: </span>aaaaa@aaaa.pl</p>
+                </div>
+                <div class="contact-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19507.38512903145!2d17.548180486624723!3d52.32646933707977!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4704e97a51bfa0d7%3A0xb3abcad0610ffead!2s62-300%20Wrze%C5%9Bnia!5e0!3m2!1spl!2spl!4v1685577009863!5m2!1spl!2spl"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="../dist/js/slick.min.js"></script>
+    <script src="../dist/js/main.min.js"></script>
+</body>
+
+</html>
