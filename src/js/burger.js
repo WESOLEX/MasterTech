@@ -28,7 +28,6 @@ showListOfServicesBtn.addEventListener('click', () => {
 });
 function hideBurgerMenu() {
 	if (window.scrollY >= 300) {
-		console.log('true');
 		burgerMenuClose();
 	}
 }
