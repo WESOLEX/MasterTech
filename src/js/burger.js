@@ -8,12 +8,12 @@ let listOfServices = offerOptionBurger.querySelector('.list-of-services');
 const arrowItem = showListOfServicesBtn.querySelector('.fa-arrow-left');
 
 function burgerMenuClose() {
-	burgerMenu.style.left = '100%';
+	burgerMenu.classList.remove('nav-options-onburger-show');
 	listOfServices.classList.remove('list-of-services-show');
 }
 
 burgerBtn.addEventListener('click', () => {
-	burgerMenu.style.left = '70%';
+	burgerMenu.classList.add('nav-options-onburger-show');
 });
 
 closeBtn.addEventListener('click', burgerMenuClose);

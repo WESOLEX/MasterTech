@@ -10,7 +10,7 @@ function showScrollUpArrow() {
 	}
 	const currentSection = window.scrollY;
 	if (footerSection.offsetTop <= currentSection + 800) {
-		arrowUp.style.color = '#003274';
+		arrowUp.style.color = '#0061e0';
 	} else {
 		arrowUp.style.color = '#ee2027';
 	}
