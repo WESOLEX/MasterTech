@@ -1182,6 +1182,8 @@ main {
 	//GALLERY
 	.gallery-section {
 		position: relative;
+		width: 100%;
+		overflow: hidden;
 		.gallery-nav {
 			position: relative;
 			height: 88vh;
