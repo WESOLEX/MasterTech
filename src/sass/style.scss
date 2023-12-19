@@ -186,6 +186,17 @@ html {
 		opacity: 100%;
 	}
 }
+@keyframes rotate-logo {
+	0% {
+		transform: rotateZ(-15deg);
+	}
+	50% {
+		transform: rotateZ(15deg);
+	}
+	100% {
+		transform: rotateZ(-15deg);
+	}
+}
 
 //Nagłówek strony
 header {
@@ -242,6 +253,17 @@ header {
 			font-size: 1.5rem;
 			color: #fff;
 			font-family: 'Goldman', sans-serif;
+			.header-text-master, 
+			.header-text-tech {
+				font-size: 2.5rem;
+				text-transform: uppercase;
+			}
+			.header-text-master {
+				color: #ee2027;
+			}
+			.header-text-tech {
+				color: #2282ff;
+			}
 		}
 
 		.header-btn {
@@ -324,6 +346,8 @@ nav {
 
 		.logo-img {
 			position: relative;
+			object-fit: contain;
+			width: 100%;
 			height: 100%;
 		}
 	}
@@ -630,9 +654,16 @@ main {
 		}
 		.section-about-us-up-photo {
 			position: relative;
-			background-color: #b9b2b2;
 			width: 500px;
-			height: 500px;
+			height: 400px;
+			.section-about-us-up-photo-img {
+				position: relative;
+				object-fit: contain;
+				width: 100%;
+				height: 100%;
+				transform: rotateZ(-15deg);
+				animation: rotate-logo 3s infinite;
+			}
 		}
 	}
 	.section-about-us-middle {
@@ -977,9 +1008,13 @@ main {
 				position: relative;
 				width: 35%;
 				margin-top: 45%;
+				margin-left: 5%;
 				margin-bottom: 30%;
 				font-size: 1.5rem;
-				text-align: center;
+				text-align: left;
+				span{
+					font-weight: bold;
+				}
 			}
 			.services-nav-btn {
 				position: relative;
@@ -1241,8 +1276,13 @@ main {
 					}
 					.slick-prev::before,
 					.slick-next::before {
-						color: #000000;
 						font-size: 2.5rem;
+					}
+					.slick-prev::before {
+						color: #ee2027;
+					}
+					.slick-next::before {
+						color: #0061e0;
 					}
 					.slick-list {
 						position: relative;
@@ -1255,6 +1295,9 @@ main {
 								border: 5px solid #003274;
 							}
 						}
+					}
+					.slick-dots {
+						display: none !important;
 					}
 				}
 			}
@@ -1280,11 +1323,13 @@ main {
 			flex-direction: column;
 			width: 100%;
 			height: 88vh;
+			min-height: 650px;
 			padding: 5%;
 			margin-bottom: 10%;
 			background-color: #001633;
 			color: #ffffff;
 			font-size: 2rem;
+			overflow: hidden;
 
 			h3 {
 				position: relative;
@@ -1344,7 +1389,7 @@ main {
 					min-height: 30vh;
 					max-width: 80%;
 					min-width: 80%;
-					margin-bottom: 2%;
+					margin-bottom: 1%;
 					padding: 5px;
 					font-size: 1.5rem;
 					background-color: #ffffff;
@@ -1352,13 +1397,13 @@ main {
 				.error-text {
 					visibility: hidden;
 					font-size: 1rem;
-					margin-bottom: 3%;
 					color: red;
 				}
 				.send-btn {
 					position: relative;
 					padding: 10px 20px;
 					background: none;
+					margin-top: 1%;
 					border: 1px solid #fff;
 					border-radius: 0;
 					color: #ffffff;
@@ -1603,7 +1648,7 @@ main {
 				background-size: 124%;
 				padding: 0%;
 				.tarpaulin-for-bowers-text {
-					margin-top: 42%;
+					margin-top: 41%;
 				}
 			}
 		}
@@ -1663,15 +1708,17 @@ main {
 	html {
 		font-size: 10px;
 	}
-	nav {
-		.nav-brand {
-			height: 80%;
-		}
-	}
 	header {
 		.header-text {
 			width: 90%;
 			p {
+				font-size: 2rem;
+			}
+			.header-btn {
+				border-top: 3px solid #ee2027;
+				border-left: 3px solid #ee2027;
+				border-bottom: 3px solid #0061e0;
+				border-right: 3px solid #0061e0;
 				font-size: 1.5rem;
 			}
 		}
@@ -1682,7 +1729,7 @@ main {
 			flex-direction: column;
 			.section-about-us-up-text {
 				font-size: 2rem;
-				margin-bottom: 10%;
+				margin-bottom: 5%;
 			}
 		}
 		.section-about-us-middle {
@@ -1824,9 +1871,6 @@ main {
 					font-size: 3.5rem;
 				}
 				.form-up {
-					flex-direction: column;
-					justify-content: center;
-					align-items: start;
 					.input-box {
 						margin: 2% 10%;
 						input {
@@ -1839,13 +1883,17 @@ main {
 				}
 				.form-down {
 					textarea {
-						height: 40vh;
-						max-height: 40vh;
-						min-height: 40vh;
+						height: 35vh;
+						max-height: 35vh;
+						min-height: 35vh;
 						font-size: 2rem;
 					}
 					.send-btn {
 						font-size: 2rem;
+						border-top: 3px solid #ee2027;
+						border-left: 3px solid #ee2027;
+						border-bottom: 3px solid #0061e0;
+						border-right: 3px solid #0061e0;
 					}
 					.error-text {
 						font-size: 1.5rem;
@@ -1871,782 +1919,802 @@ main {
 				}
 			}
 		}
+		footer {
+			height: 350px;
+		}
 	}
-	@media (max-width: 900px) {
-		nav {
-			position: relative;
-			z-index: 100;
+}
+@media (max-width: 900px) {
+	nav {
+		position: relative;
+		z-index: 100;
 
-			.nav-options {
-				display: none;
-			}
-			.burger-btn {
-				display: flex;
+		.nav-options {
+			display: none;
+		}
+		.burger-btn {
+			display: flex;
+		}
+		.nav-brand {
+			width: 60%;
+		}
+	}
+	main {
+		.section-about-us-up {
+			.section-about-us-up-text {
+				width: 60%;
 			}
 		}
-		main {
-			.section-about-us-up {
-				.section-about-us-up-text {
-					width: 60%;
+		.section-about-us-middle {
+			margin: 30% auto;
+			.about-us-middle-arrow-up {
+				margin-left: 75%;
+			}
+			.about-us-middle-arrow-down {
+				margin-left: 30%;
+			}
+		}
+		.section-about-us-down {
+			margin: 30% auto;
+		}
+		.services-header {
+			h1 {
+				font-size: 2.5rem;
+				padding-top: 15%;
+			}
+		}
+		.services-nav {
+			.services-nav-item {
+				p {
+					font-size: 1.7rem;
+				}
+				i {
+					margin-bottom: 15%;
 				}
 			}
-			.section-about-us-middle {
-				margin: 30% auto;
-				.about-us-middle-arrow-up {
-					margin-left: 75%;
-				}
-				.about-us-middle-arrow-down {
-					margin-left: 30%;
+			.services-nav-item:hover {
+				p {
+					font-size: 1.7rem;
 				}
 			}
-			.section-about-us-down {
-				margin: 30% auto;
-			}
-			.services-header {
-				h1 {
-					font-size: 2.5rem;
-					padding-top: 15%;
+		}
+		.tarpaulin-for-trucs {
+			.tarpaulin-for-trucs-down {
+				.tarpaulin-for-trucs-middle {
+					font-size: 1.8rem;
 				}
 			}
-			.services-nav {
-				.services-nav-item {
-					p {
-						font-size: 1.7rem;
-					}
-					i {
-						margin-bottom: 15%;
-					}
-				}
-				.services-nav-item:hover {
-					p {
-						font-size: 1.7rem;
-					}
+			.tarpaulin-for-trucs-middle-btns {
+				height: 100px;
+				margin-top: 10%;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+		}
+		.tarpaulin-for-trailers {
+			.tarpaulin-for-trailers-middle {
+				padding: 15% 0% 40%;
+				p {
+					font-size: 1.8rem;
 				}
 			}
-			.tarpaulin-for-trucs {
-				.tarpaulin-for-trucs-down {
-					.tarpaulin-for-trucs-middle {
-						font-size: 1.8rem;
-					}
+		}
+		.tarpaulin-for-bowers {
+			.tarpaulin-for-bowers-middle {
+				background-size: 150%;
+				margin-bottom: 20%;
+				.gallery-btn {
+					position: absolute;
+					top: 80%;
+					left: 52%;
 				}
-				.tarpaulin-for-trucs-middle-btns {
+				.services-nav-btn {
+					position: absolute;
+					top: 80%;
+					left: 28%;
+					width: auto;
+				}
+				.tarpaulin-for-bowers-text {
+					margin-top: 53%;
+				}
+			}
+		}
+		.tarpaulin-repair {
+			.tarpaulin-repair-middle {
+				.tarpaulin-repair-text {
+					width: 50%;
+				}
+				.fa-wrench {
+					font-size: 20rem;
+				}
+				.fa-hammer {
+					font-size: 20rem;
+					top: 10%;
+				}
+				.fa-screwdriver {
+					font-size: 30rem;
+					top: 60%;
+				}
+
+				.tarpaulin-repair-middle-btns {
 					height: 100px;
-					margin-top: 10%;
 					flex-direction: column;
 					justify-content: space-between;
+					align-items: center;
 				}
 			}
-			.tarpaulin-for-trailers {
-				.tarpaulin-for-trailers-middle {
-					padding: 15% 0% 40%;
-					p {
-						font-size: 1.8rem;
-					}
+		}
+		.tarpaulin-for-tents {
+			.tent-hall-header {
+				background-size: 130%;
+				.tent-hall-middle-btns {
+					margin: 0 20%;
+					margin-top: 20%;
 				}
 			}
-			.tarpaulin-for-bowers {
-				.tarpaulin-for-bowers-middle {
-					background-size: 150%;
-					margin-bottom: 20%;
-					.gallery-btn {
-						position: absolute;
-						top: 80%;
-						left: 52%;
-					}
-					.services-nav-btn {
-						position: absolute;
-						top: 80%;
-						left: 28%;
-						width: auto;
-					}
-					.tarpaulin-for-bowers-text {
-						margin-top: 53%;
-					}
+		}
+		.tarpaulin-individual-orders {
+			.individual-orders-header {
+				.individual-orders-middle {
+					width: 50%;
 				}
 			}
-			.tarpaulin-repair {
-				.tarpaulin-repair-middle {
-					.tarpaulin-repair-text {
-						width: 50%;
-					}
-					.fa-wrench {
-						font-size: 20rem;
-					}
-					.fa-hammer {
-						font-size: 20rem;
-						top: 10%;
-					}
-					.fa-screwdriver {
-						font-size: 30rem;
-						top: 60%;
-					}
-
-					.tarpaulin-repair-middle-btns {
-						height: 100px;
-						flex-direction: column;
-						justify-content: space-between;
-						align-items: center;
+		}
+		.gallery-section {
+			.gallery-nav {
+				grid-template-columns: 1fr 1fr;
+				margin-top: 5%;
+				.gallery-nav-item {
+					.gallery-nav-item-text {
+						font-size: 1.5rem;
 					}
 				}
 			}
-			.tarpaulin-for-tents {
-				.tent-hall-header {
-					background-size: 130%;
-					.tent-hall-middle-btns {
-						margin: 0 20%;
+			.gallery-item-section {
+				.section-title {
+					h2 {
+						padding: 10% 0;
+						padding-top: 15%;
+					}
+				}
+				.gallery-item-slick {
+					.slider-for {
+						height: 450px;
+						margin-top: 10%;
+					}
+					.slider-nav {
 						margin-top: 20%;
 					}
 				}
 			}
-			.tarpaulin-individual-orders {
-				.individual-orders-header {
-					.individual-orders-middle {
-						width: 50%;
+		}
+		.contact {
+			.contact-form {
+				.form-up {
+					flex-direction: column;
+					justify-content: center;
+					align-items: start;
+				}
+				.form-down {
+					textarea {
+						height: 40vh;
+						max-height: 40vh;
+						min-height: 40vh;
 					}
 				}
-			}
-			.gallery-section {
-				.gallery-nav {
-					grid-template-columns: 1fr 1fr;
-					margin-top: 5%;
-					.gallery-nav-item {
-						.gallery-nav-item-text {
-							font-size: 1.5rem;
-						}
-					}
-				}
-				.gallery-item-section {
-					.section-title {
-						h2 {
-							padding: 10% 0;
-							padding-top: 15%;
-						}
-					}
-					.gallery-item-slick {
-						.slider-for {
-							height: 450px;
-							margin-top: 10%;
-						}
-						.slider-nav {
-							margin-top: 20%;
-						}
-					}
-				}
-			}
-			footer {
-				height: 310px;
 			}
 		}
+		footer {
+			height: 310px;
+		}
 	}
-	@media (max-width: 768px) {
-		main {
-			.section-about-us-middle {
-				.section-about-us-middle-characters {
-					.section-about-us-middle-character {
-						margin: 20%;
-						i {
-							font-size: 3rem;
-						}
-						p {
-							font-size: 2rem;
-						}
-					}
-				}
-			}
-			.section-about-us-down {
-				align-items: start;
-			}
-			.services-header {
-				h1 {
-					font-size: 2.2rem;
-					// padding-top: 15%;
-				}
-			}
-			.services-nav {
-				.services-nav-item {
+}
+@media (max-width: 768px) {
+	main {
+		.section-about-us-middle {
+			.section-about-us-middle-characters {
+				.section-about-us-middle-character {
+					margin: 20%;
 					i {
+						font-size: 3rem;
+					}
+					p {
 						font-size: 2rem;
 					}
 				}
 			}
-			.tarpaulin-for-trucs {
-				.tarpaulin-for-trucs-down {
-					.tarpaulin-for-trucs-left {
-						margin-top: 5%;
-						width: 50%;
-					}
-					.tarpaulin-for-trucs-middle {
-						font-size: 1.5rem;
-					}
-					.tarpaulin-for-trucs-right {
-						display: none;
-					}
-				}
-				.tarpaulin-for-trucs-middle-btns {
-					margin-top: 20%;
-					width: 70%;
-					flex-direction: row;
-					justify-content: space-between;
-				}
+		}
+		.section-about-us-down {
+			align-items: start;
+		}
+		.services-header {
+			h1 {
+				font-size: 2.2rem;
+				// padding-top: 15%;
 			}
-			.tarpaulin-for-trailers {
-				.tarpaulin-for-trailers-middle {
-					background-size: 150%;
-					background-position: 65%;
-					p {
-						font-size: 1.5rem;
-					}
-					padding: 30% 0% 60%;
-					.tarpaulin-for-trailers-middle-btns {
-						margin: 10% 0% 0%;
-					}
-				}
-			}
-			.tarpaulin-for-bowers {
-				.tarpaulin-for-bowers-middle {
-					background-size: 210%;
-					padding-bottom: 30%;
-					.tarpaulin-for-bowers-text {
-						margin-top: 80%;
-						width: 50%;
-					}
-					.gallery-btn {
-						top: 73%;
-						left: 55%;
-					}
-					.services-nav-btn {
-						top: 73%;
-						left: 22%;
-					}
-				}
-			}
-			.tarpaulin-repair {
-				.tarpaulin-repair-middle {
-					.fa-wrench {
-						top: -50%;
-					}
-				}
-			}
-			.tarpaulin-for-tents {
-				.tent-hall-header {
-					background-size: 160%;
-					padding-top: 43%;
-					.tent-hall-text {
-						margin-left: 14%;
-						width: 55%;
-					}
-				}
-			}
-			.gallery-section {
-				.gallery-item-section {
-					.gallery-item-slick {
-						.slider-for {
-							height: 400px;
-							margin-top: 20%;
-						}
-						.slider-nav {
-							height: 150px;
-							margin-top: 25%;
-						}
-					}
-				}
-			}
-			.contact {
-				.contact-form {
-					h3 {
-						margin-bottom: 10%;
-					}
-				}
-				.contact-details-map {
-					.contact-details {
-						h4 {
-							font-size: 2.5rem;
-						}
-						.contact-detail {
-							font-size: 1.7rem;
-						}
-					}
-					.contact-map {
-						iframe {
-							width: 500px;
-							height: 350px;
-						}
-					}
-				}
-			}
-			footer {
-				height: 50px;
-				.footer-up {
-					display: none;
-				}
-				.footer-down {
-					height: 100%;
+		}
+		.services-nav {
+			.services-nav-item {
+				i {
+					font-size: 2rem;
 				}
 			}
 		}
-	}
-	@media (max-width: 600px) {
-		nav {
-			.nav-options-onburger {
-				width: 50%;
-			}
-			.nav-options-onburger-show {
-				left: 50%;
-			}
-			.nav-brand {
-				height: 60%;
-			}
-		}
-		main {
-			.section-about-us-up {
-				.section-about-us-up-text {
+		.tarpaulin-for-trucs {
+			.tarpaulin-for-trucs-down {
+				.tarpaulin-for-trucs-left {
+					margin-top: 5%;
+					width: 50%;
+				}
+				.tarpaulin-for-trucs-middle {
 					font-size: 1.5rem;
 				}
-				.section-about-us-up-photo {
-					width: 300px;
-					height: 300px;
+				.tarpaulin-for-trucs-right {
+					display: none;
 				}
 			}
-			.section-about-us-middle {
-				.about-us-middle-arrow-up {
-					margin-top: 10%;
+			.tarpaulin-for-trucs-middle-btns {
+				margin-top: 20%;
+				width: 70%;
+				flex-direction: row;
+				justify-content: space-between;
+			}
+		}
+		.tarpaulin-for-trailers {
+			.tarpaulin-for-trailers-middle {
+				background-size: 150%;
+				background-position: 65%;
+				p {
+					font-size: 1.5rem;
 				}
-				.about-us-middle-arrow-down {
-					margin-top: 10%;
+				padding: 30% 0% 60%;
+				.tarpaulin-for-trailers-middle-btns {
+					margin: 10% 0% 0%;
 				}
 			}
-			.section-about-us-down {
-				font-size: 3rem;
-			}
-			.services-header {
-				h1 {
-					// font-size: 2.2rem;
-					width: 80%;
-					padding-top: 20%;
+		}
+		.tarpaulin-for-bowers {
+			.tarpaulin-for-bowers-middle {
+				background-size: 210%;
+				padding-bottom: 30%;
+				.tarpaulin-for-bowers-text {
+					margin-top: 80%;
+					width: 50%;
 				}
-				.services-header-left-imgs {
-					width: 60%;
+				.gallery-btn {
+					top: 73%;
+					left: 55%;
 				}
-				.services-header-right-imgs {
-					width: 40%;
-					.services-header-right-img-four {
-						width: 100%;
-					}
-					.services-header-right-imgs-five-six-seven {
-						display: none;
-					}
+				.services-nav-btn {
+					top: 73%;
+					left: 22%;
 				}
 			}
-			.services-nav {
-				.services-nav-item {
-					p {
-						width: 90%;
-					}
-				}
-				.tarp-trucs {
-					i {
-						margin-bottom: 20%;
-					}
+		}
+		.tarpaulin-repair {
+			.tarpaulin-repair-middle {
+				.fa-wrench {
+					top: -50%;
 				}
 			}
-			.tarpaulin-for-trucs {
-				.tarpaulin-for-trucs-down {
-					flex-direction: column;
-					.tarpaulin-for-trucs-left {
-						width: 60%;
-						margin: 0 auto;
-						.truck-left-img {
-							margin-top: 0;
-							margin-bottom: 20%;
-							transform: rotate(0deg);
-						}
-					}
-					.tarpaulin-for-trucs-middle {
-						width: 80%;
-						margin: 0 auto;
-					}
-					.tarpaulin-for-trucs-right {
-						display: flex;
-						width: 60%;
-						margin: 0 auto;
-						.truck-right-img {
-							margin-top: 40%;
-							transform: rotate(180deg);
-						}
-					}
-				}
-				.tarpaulin-for-trucs-middle-btns {
-					position: absolute;
-					top: 65%;
-					left: 50%;
-					transform: translate(-50%, -50%);
+		}
+		.tarpaulin-for-tents {
+			.tent-hall-header {
+				background-size: 160%;
+				padding-top: 43%;
+				.tent-hall-text {
+					margin-left: 14%;
+					width: 55%;
 				}
 			}
-			.tarpaulin-for-trailers {
-				.tarpaulin-for-trailers-middle {
-					background-size: 180%;
-					background-position: 65%;
-				}
-			}
-			.tarpaulin-for-bowers {
-				.tarpaulin-for-bowers-middle {
-					background-size: 240%;
-					padding: 0%;
-					padding-bottom: 30%;
-					.tarpaulin-for-bowers-text {
-						margin-top: 90%;
-						width: 80%;
+		}
+		.gallery-section {
+			.gallery-item-section {
+				.gallery-item-slick {
+					.slider-for {
+						height: 400px;
+						margin-top: 20%;
 					}
-					.gallery-btn {
-						top: 80%;
-						left: 35%;
-					}
-					.services-nav-btn {
-						top: 75%;
-						left: 35%;
+					.slider-nav {
+						height: 150px;
+						margin-top: 25%;
 					}
 				}
 			}
-			.tarpaulin-repair {
-				.tarpaulin-repair-middle {
-					.fa-wrench {
-						top: -20%;
-						left: -25%;
-						font-size: 17rem;
+		}
+		.contact {
+			.contact-form {
+				h3 {
+					margin-bottom: 10%;
+				}
+			}
+			.contact-details-map {
+				.contact-details {
+					h4 {
+						font-size: 2.5rem;
 					}
-					.fa-hammer {
-						font-size: 15rem;
+					.contact-detail {
+						font-size: 1.7rem;
 					}
-					.fa-screwdriver {
-						font-size: 25rem;
+				}
+				.contact-map {
+					iframe {
+						width: 500px;
+						height: 350px;
 					}
 				}
 			}
-			.tarpaulin-for-tents {
-				.tent-hall-header {
-					background-size: 200%;
-					background-position: top 0% left 19%;
-					padding-top: 53%;
-					.tent-hall-text {
-						margin-left: 16%;
-						width: 70%;
-					}
-					.tent-hall-middle-btns {
-						flex-direction: column;
-						height: 100px;
-						margin-top: 40%;
-					}
-				}
+		}
+		footer {
+			height: 50px;
+			.footer-up {
+				display: none;
 			}
-			.tarpaulin-individual-orders {
-				.individual-orders-header {
-					justify-content: end;
-					.to-do-big-blue {
-						display: none;
-					}
-					.individual-orders-middle {
-						width: 60%;
-						margin-right: 10%;
-					}
-					.checklist-big-red {
-						width: 25%;
-					}
-				}
-				.tarpaulin-for-indivisual-orders-middle-btns {
-					margin-top: 30%;
-				}
+			.footer-down {
+				height: 100%;
 			}
-			.gallery-section {
-				.gallery-nav {
-					margin-top: 1%;
-					.gallery-nav-item {
-						height: 90%;
-						.gallery-nav-item-text {
-							font-size: 1.3rem;
-						}
-					}
-				}
-				.gallery-item-section {
-					margin: 30% auto;
-					.section-title {
-						font-size: 1.5rem;
-					}
-					.gallery-item-slick {
-						width: 80%;
-						.slider-for {
-							height: 350px;
-						}
-						.slider-nav {
-							height: 100px;
-							margin-top: 30%;
-							.slick-prev {
-								left: -35px;
-							}
-							.slick-next {
-								right: -35px;
-							}
-						}
-					}
-				}
-			}
-
-			.section-title {
+		}
+	}
+}
+@media (max-width: 600px) {
+	nav {
+		.nav-options-onburger {
+			width: 50%;
+		}
+		.nav-options-onburger-show {
+			left: 50%;
+		}
+	}
+	main {
+		.section-about-us-up {
+			.section-about-us-up-text {
 				font-size: 1.5rem;
 			}
-			.contact {
-				.contact-details-map {
-					.contact-details {
-						padding: 2% 1%;
-						h4 {
-							font-size: 2.2rem;
-							transform: skewX(30deg);
+			.section-about-us-up-photo {
+				width: 300px;
+				height: 300px;
+			}
+		}
+		.section-about-us-middle {
+			.about-us-middle-arrow-up {
+				margin-top: 10%;
+			}
+			.about-us-middle-arrow-down {
+				margin-top: 10%;
+			}
+		}
+		.section-about-us-down {
+			font-size: 3rem;
+		}
+		.services-header {
+			h1 {
+				// font-size: 2.2rem;
+				width: 80%;
+				padding-top: 20%;
+			}
+			.services-header-left-imgs {
+				width: 60%;
+			}
+			.services-header-right-imgs {
+				width: 40%;
+				.services-header-right-img-four {
+					width: 100%;
+				}
+				.services-header-right-imgs-five-six-seven {
+					display: none;
+				}
+			}
+		}
+		.services-nav {
+			.services-nav-item {
+				p {
+					width: 90%;
+				}
+			}
+			.tarp-trucs {
+				i {
+					margin-bottom: 20%;
+				}
+			}
+		}
+		.tarpaulin-for-trucs {
+			.tarpaulin-for-trucs-down {
+				flex-direction: column;
+				.tarpaulin-for-trucs-left {
+					width: 60%;
+					margin: 0 auto;
+					.truck-left-img {
+						margin-top: 0;
+						margin-bottom: 20%;
+						transform: rotate(0deg);
+					}
+				}
+				.tarpaulin-for-trucs-middle {
+					width: 80%;
+					margin: 0 auto;
+				}
+				.tarpaulin-for-trucs-right {
+					display: flex;
+					width: 60%;
+					margin: 0 auto;
+					.truck-right-img {
+						margin-top: 40%;
+						transform: rotate(180deg);
+					}
+				}
+			}
+			.tarpaulin-for-trucs-middle-btns {
+				position: absolute;
+				top: 65%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+		.tarpaulin-for-trailers {
+			.tarpaulin-for-trailers-middle {
+				background-size: 180%;
+				background-position: 65%;
+			}
+		}
+		.tarpaulin-for-bowers {
+			.tarpaulin-for-bowers-middle {
+				background-size: 240%;
+				padding: 0%;
+				padding-bottom: 30%;
+				.tarpaulin-for-bowers-text {
+					margin-top: 90%;
+					width: 80%;
+				}
+				.gallery-btn {
+					top: 80%;
+					left: 35%;
+				}
+				.services-nav-btn {
+					top: 75%;
+					left: 35%;
+				}
+			}
+		}
+		.tarpaulin-repair {
+			.tarpaulin-repair-middle {
+				.fa-wrench {
+					top: -20%;
+					left: -25%;
+					font-size: 17rem;
+				}
+				.fa-hammer {
+					font-size: 15rem;
+				}
+				.fa-screwdriver {
+					font-size: 25rem;
+				}
+			}
+		}
+		.tarpaulin-for-tents {
+			.tent-hall-header {
+				background-size: 200%;
+				background-position: top 0% left 19%;
+				padding-top: 53%;
+				.tent-hall-text {
+					margin-left: 16%;
+					width: 70%;
+				}
+				.tent-hall-middle-btns {
+					flex-direction: column;
+					height: 100px;
+					margin-top: 40%;
+				}
+			}
+		}
+		.tarpaulin-individual-orders {
+			.individual-orders-header {
+				justify-content: end;
+				.to-do-big-blue {
+					display: none;
+				}
+				.individual-orders-middle {
+					width: 60%;
+					margin-right: 10%;
+				}
+				.checklist-big-red {
+					width: 25%;
+				}
+			}
+			.tarpaulin-for-indivisual-orders-middle-btns {
+				margin-top: 30%;
+			}
+		}
+		.gallery-section {
+			.gallery-nav {
+				margin-top: 1%;
+				.gallery-nav-item {
+					height: 90%;
+					.gallery-nav-item-text {
+						font-size: 1.3rem;
+					}
+				}
+			}
+			.gallery-item-section {
+				margin: 30% auto;
+				.section-title {
+					font-size: 1.5rem;
+				}
+				.gallery-item-slick {
+					width: 80%;
+					.slider-for {
+						height: 350px;
+					}
+					.slider-nav {
+						height: 100px;
+						margin-top: 30%;
+						.slick-prev {
+							left: -35px;
 						}
-						.contact-detail {
-							font-size: 1.4rem;
+						.slick-next {
+							right: -35px;
 						}
 					}
-					.contact-map {
-						iframe {
-							width: 420px;
-							height: 350px;
-						}
+				}
+			}
+		}
+
+		.section-title {
+			font-size: 1.5rem;
+		}
+		.contact {
+			.contact-details-map {
+				.contact-details {
+					padding: 2% 1%;
+					h4 {
+						font-size: 2.2rem;
+						transform: skewX(30deg);
+					}
+					.contact-detail {
+						font-size: 1.4rem;
+					}
+				}
+				.contact-map {
+					iframe {
+						width: 420px;
+						height: 350px;
 					}
 				}
 			}
 		}
 	}
-	@media (max-width: 480px) {
-		header {
-			.header-text {
+}
+@media (max-width: 480px) {
+	header {
+		.header-text {
+			p {
+				text-align: left;
+			}
+		}
+	}
+	nav {
+		justify-content: start;
+		padding-left: 15%;
+		.nav-options-onburger {
+			width: 50%;
+		}
+		.nav-options-onburger-show {
+			left: 50%;
+		}
+	}
+	main {
+		.section-about-us-up {
+			.section-about-us-up-text {
+				width: 80%;
+			}
+		}
+		.services-header {
+			.services-header-left-imgs {
+				width: 100%;
+			}
+			.services-header-right-imgs {
+				display: none;
+			}
+		}
+		.services-header {
+			h1 {
+				width: 80%;
+				padding-top: 25%;
+			}
+		}
+		.services-nav {
+			.services-nav-item {
+				i {
+					margin-bottom: 25%;
+				}
 				p {
-					text-align: left;
+					font-size: 1.2rem;
+				}
+			}
+			.tarp-trucs {
+				i {
+					margin-bottom: 30%;
+				}
+			}
+			.services-nav-item:hover {
+				p {
+					font-size: 1.2rem;
 				}
 			}
 		}
-		nav {
-			justify-content: start;
-			padding-left: 15%;
-			.nav-options-onburger {
-				width: 50%;
+		.section-title {
+			font-size: 1.2rem;
+		}
+		.tarpaulin-for-trucs {
+			.tarpaulin-for-trucs-middle-btns {
+				width: 80%;
+				top: 68%;
 			}
-			.nav-options-onburger-show {
-				left: 50%;
+			.tarpaulin-for-trucs-down {
+				.tarpaulin-for-trucs-right {
+					.truck-right-img {
+						margin-top: 70%;
+					}
+				}
 			}
 		}
-		main {
-			.section-about-us-up {
-				.section-about-us-up-text {
-					width: 80%;
+		.tarpaulin-for-trailers {
+			.tarpaulin-for-trailers-middle {
+				background-size: 290%;
+				background-position: 60%;
+				padding: 25% 0% 80%;
+			}
+		}
+		.tarpaulin-for-bowers {
+			.tarpaulin-for-bowers-middle {
+				background-size: 310%;
+				padding-bottom: 45%;
+				.tarpaulin-for-bowers-text {
+					margin-top: 105%;
+				}
+				.gallery-btn {
+					top: 75%;
+					left: 53%;
+				}
+				.services-nav-btn {
+					left: 14%;
+					top: 75%;
 				}
 			}
-			.services-header {
-				.services-header-left-imgs {
-					width: 100%;
+		}
+		.tarpaulin-repair {
+			.tarpaulin-repair-middle {
+				margin-bottom: 20%;
+				.fa-wrench {
+					top: -30%;
 				}
-				.services-header-right-imgs {
-					display: none;
+				.fa-hammer {
+					left: 85%;
 				}
-			}
-			.services-header {
-				h1 {
-					width: 80%;
-					padding-top: 25%;
-				}
-			}
-			.services-nav {
-				.services-nav-item {
-					i {
-						margin-bottom: 25%;
-					}
-					p {
-						font-size: 1.2rem;
-					}
-				}
-				.tarp-trucs {
-					i {
-						margin-bottom: 30%;
-					}
-				}
-				.services-nav-item:hover {
-					p {
-						font-size: 1.2rem;
-					}
+				.tarpaulin-repair-text {
+					width: 70%;
 				}
 			}
-			.section-title {
-				font-size: 1.2rem;
-			}
-			.tarpaulin-for-trucs {
-				.tarpaulin-for-trucs-middle-btns {
-					width: 80%;
-					top: 68%;
+		}
+		.tarpaulin-for-tents {
+			.tent-hall-header {
+				background-size: 280%;
+				background-position: top 0% left 27%;
+				padding-top: 75%;
+				.tent-hall-text {
+					margin-left: 5%;
+					width: 90%;
 				}
-				.tarpaulin-for-trucs-down {
-					.tarpaulin-for-trucs-right {
-						.truck-right-img {
-							margin-top: 70%;
-						}
-					}
-				}
-			}
-			.tarpaulin-for-trailers {
-				.tarpaulin-for-trailers-middle {
-					background-size: 290%;
-					background-position: 60%;
-					padding: 25% 0% 80%;
+				.tent-hall-middle-btns {
+					flex-direction: column;
+					height: 100px;
+					margin-top: 50%;
 				}
 			}
-			.tarpaulin-for-bowers {
-				.tarpaulin-for-bowers-middle {
-					background-size: 310%;
-					padding-bottom: 45%;
-					.tarpaulin-for-bowers-text {
-						margin-top: 105%;
-					}
-					.gallery-btn {
-						top: 75%;
-						left: 53%;
-					}
-					.services-nav-btn {
-						left: 14%;
-						top: 75%;
-					}
+		}
+		.tarpaulin-individual-orders {
+			.individual-orders-header {
+				.individual-orders-middle {
+					width: 60%;
+					margin-right: 5%;
+				}
+				.checklist-big-red {
+					height: 100%;
+					width: auto;
+					left: -12%;
 				}
 			}
-			.tarpaulin-repair {
-				.tarpaulin-repair-middle {
-					margin-bottom: 20%;
-					.fa-wrench {
-						top: -30%;
-					}
-					.fa-hammer {
-						left: 85%;
-					}
-					.tarpaulin-repair-text {
-						width: 70%;
-					}
-				}
+			.tarpaulin-for-indivisual-orders-middle-btns {
+				margin-top: 30%;
 			}
-			.tarpaulin-for-tents {
-				.tent-hall-header {
-					background-size: 280%;
-					background-position: top 0% left 27%;
-					padding-top: 75%;
-					.tent-hall-text {
-						margin-left: 5%;
-						width: 90%;
-					}
-					.tent-hall-middle-btns {
-						flex-direction: column;
-						height: 100px;
-						margin-top: 50%;
-					}
-				}
-			}
-			.tarpaulin-individual-orders {
-				.individual-orders-header {
-					.individual-orders-middle {
-						width: 60%;
-						margin-right: 5%;
-					}
-					.checklist-big-red {
-						height: 100%;
-						width: auto;
-						left: -12%;
-					}
-				}
-				.tarpaulin-for-indivisual-orders-middle-btns {
-					margin-top: 30%;
-				}
-			}
-			.gallery-section {
-				.gallery-nav {
-					height: 88vh;
+		}
+		.gallery-section {
+			.gallery-nav {
+				height: 88vh;
+				width: 95%;
+				grid-template-columns: 1fr 1fr;
+				margin-top: 1%;
+				.gallery-nav-item {
 					width: 95%;
-					grid-template-columns: 1fr 1fr;
-					margin-top: 1%;
-					.gallery-nav-item {
-						width: 95%;
-						height: 95%;
-						.gallery-nav-item-text {
-							font-size: 1.4rem;
-						}
+					height: 95%;
+					.gallery-nav-item-text {
+						font-size: 1.4rem;
 					}
 				}
-				.gallery-item-section {
-					.section-title {
-						h2 {
-							padding: 10% 0;
-							padding-top: 25%;
-						}
+			}
+			.gallery-item-section {
+				.section-title {
+					h2 {
+						padding: 10% 0;
+						padding-top: 25%;
 					}
-					.gallery-item-slick {
-						.slider-for {
-							height: 300px;
+				}
+				.gallery-item-slick {
+					width: 85%;
+					.slider-for {
+						height: 400px;
+					}
+					.slider-nav {
+						margin-top: 20%;
+						.slick-prev {
+							left: -30px;
 						}
-						.slider-nav {
-							margin-top: 50%;
-							.slick-prev {
-								left: -30px;
-							}
-							.slick-next {
-								right: -25px;
-							}
+						.slick-next {
+							right: -25px;
 						}
 					}
 				}
 			}
-			.services-nav-btn {
-				padding: 8px 15px;
-				font-size: 1rem;
-			}
-			.gallery-btn {
-				padding: 8px 15px;
-				font-size: 1rem;
-			}
-			.contact {
-				.contact-form {
-					font-size: 1.8rem;
-					h3 {
-						font-size: 3rem;
-					}
-					.form-up {
-						.input-box {
-							input {
-								font-size: 1.3rem;
-							}
-						}
-					}
-					.form-down {
-						textarea {
-							font-size: 1.3rem;
-							height: 35vh;
-							max-height: 35vh;
-							min-height: 35vh;
-						}
-						.send-btn {
+		}
+		.services-nav-btn {
+			padding: 8px 15px;
+			font-size: 1rem;
+		}
+		.gallery-btn {
+			padding: 8px 15px;
+			font-size: 1rem;
+		}
+		.contact {
+			.contact-form {
+				font-size: 1.8rem;
+				h3 {
+					font-size: 3rem;
+				}
+				.form-up {
+					.input-box {
+						input {
 							font-size: 1.3rem;
 						}
 					}
 				}
-				.contact-details-map {
-					.contact-details {
-						padding: 2% 1%;
-						transform: skewX(-20deg);
-						h4 {
-							font-size: 2.2rem;
-							transform: skewX(20deg);
-						}
-						.contact-detail {
-							font-size: 1.4rem;
-							transform: skewX(20deg);
-						}
+				.form-down {
+					textarea {
+						font-size: 1.3rem;
+						height: 35vh;
+						max-height: 35vh;
+						min-height: 35vh;
 					}
-					.contact-map {
-						iframe {
-							width: 330px;
-							height: 330px;
-						}
+					.send-btn {
+						font-size: 1.3rem;
+					}
+				}
+			}
+			.contact-details-map {
+				.contact-details {
+					padding: 2% 1%;
+					transform: skewX(-20deg);
+					h4 {
+						font-size: 2.2rem;
+						transform: skewX(20deg);
+					}
+					.contact-detail {
+						font-size: 1.4rem;
+						transform: skewX(20deg);
+					}
+				}
+				.contact-map {
+					iframe {
+						width: 330px;
+						height: 330px;
 					}
 				}
 			}
