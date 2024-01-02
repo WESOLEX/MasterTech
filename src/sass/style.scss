@@ -1613,6 +1613,17 @@ main {
 			position: relative;
 			height: 20%;
 			border-top: 1px solid #fff;
+			.footer-down-graphics-links {
+				display: flex;
+				flex-direction: column;
+				text-decoration: none;
+				margin-left: 2%;
+				color: #fff;
+				a {
+					// text-decoration: none;
+					color: #fff;
+				}
+			}
 			.footer-down-text {
 				position: absolute;
 				top: 50%;
@@ -2746,6 +2757,13 @@ main {
 						height: 330px;
 					}
 				}
+			}
+		}
+	}
+	footer {
+		.footer-down {
+			.footer-down-text {
+				margin-left: 15%;
 			}
 		}
 	}

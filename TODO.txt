@@ -1,5 +1,4 @@
 TODO:
 - dodać wszystkie zdjęcia i opisy,
-- dodać wszystkie alty do zdjęć,
 - dodać autorstwa grafik
 - przejrzeć kod (usunąć zbędne komentarze)
